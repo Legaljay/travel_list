@@ -13,7 +13,7 @@ export const Form = () => {
             packed: false, 
             id:Date.now()
         };
-        //     console.log('new item
+        //     console.log('new it
         setDescription('');
         setQuantity(1);
     }
