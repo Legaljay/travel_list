@@ -5,7 +5,7 @@ function Items({item}) {
         <span style={item.packed? {textDecoration:"line-through"}: {}}>
             {item.quantity}{item.description}
         </span>
-        <button>&times</button>
+        <button style={{color: "red", fontSize: "40px"}}>&times;</button>
     </li>
   )
 
