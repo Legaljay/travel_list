@@ -1,8 +1,11 @@
 import { useState } from "react";
+import PropTypes from 'prop-types'
 
-export const Form = () => {
+export const Form = ({onAddItems}) => {
     const [description, setDescription] = useState('')
     const [quantity, setQuantity] = useState(1)
+    
+
     function handleSubmit(e){
         e.preventDefault();
 
@@ -13,7 +16,8 @@ export const Form = () => {
             packed: false, 
             id:Date.now()
         };
-        
+        console.log(newItem)
+        onAddItems(newItem)
         setDescription('');
         setQuantity(1);
     }
@@ -36,6 +40,9 @@ export const Form = () => {
   )
 }
 
+Form.propTypes = {
+    onAddItems: PropTypes.func.isRequired
+}
 
 
 

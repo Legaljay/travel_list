@@ -1,17 +1,23 @@
 import Items from "./items"
+import PropTypes from 'prop-types'
 
-const initialItems = [
-    { id: 1, description: "Passports", quantity: 2, packed: false },
-    { id: 2, description: "Socks", quantity: 12, packed: true },
-    { id: 2, description: "Charger", quantity: 12, packed: false },
-  ];
+// const initialItems = [
+//     { id: 1, description: "Passports", quantity: 2, packed: false },
+//     { id: 2, description: "Socks", quantity: 12, packed: true },
+//     { id: 2, description: "Charger", quantity: 12, packed: false },
+//   ];
 
-export const PackingList = () => {
+export const PackingList = ({items,onDeleteItem,onToggleItem}) => {
   return (
     <div className="list">
         <ul>
-            {initialItems.map(item => (
-                <Items key={item.id} item={item} />
+            {items.map(item => (
+                <Items 
+                    key={item.id} 
+                    item={item} 
+                    handleDelete={onDeleteItem}
+                    handleToggle={onToggleItem}
+                />
                 ))}
             {/* <Items /> */}
         </ul>
@@ -19,6 +25,12 @@ export const PackingList = () => {
   )
 }
 
+PackingList.propTypes = {
+    items: PropTypes.object,
+    onDeleteItem: PropTypes.func.isRequired,
+    onToggleItem: PropTypes.func.isRequired
+
+}
 
 
 
