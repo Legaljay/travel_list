@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 //     { id: 2, description: "Charger", quantity: 12, packed: false },
 //   ];
 
-export const PackingList = ({items,onDeleteItem,onToggleItem}) => {
+export const PackingList = ({items,onDeleteItem,onToggleItem,onDeleteList}) => {
     const [sortBy, setSortBy] = useState('input');
     let sortedItems;
     if(sortBy === 'input') sortedItems = items;
@@ -39,8 +39,9 @@ export const PackingList = ({items,onDeleteItem,onToggleItem}) => {
                 <option value="input">Sort by input order</option>
                 <option value="description">Sort by description</option>
                 <option value="packed">Sort by packed stat</option>
-                
+
             </select>
+            <button onClick={onDeleteList}>Clear list</button>
         </div>
     </div>
   )
@@ -49,7 +50,8 @@ export const PackingList = ({items,onDeleteItem,onToggleItem}) => {
 PackingList.propTypes = {
     items: PropTypes.arrayOf(Object),
     onDeleteItem: PropTypes.func.isRequired,
-    onToggleItem: PropTypes.func.isRequired
+    onToggleItem: PropTypes.func.isRequired,
+    onDeleteList: PropTypes.func.isRequired
 
 }
 

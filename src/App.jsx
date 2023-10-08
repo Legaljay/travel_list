@@ -26,6 +26,11 @@ export default function App(){
             )
   }
 
+  function handleDeleteList(){
+    const confirmed = window.confirm('Are you sure you want to delete all items?') //this pops up a window with the message, and returns a boolean value
+    confirmed ? setItems([]): null ; //so the setter is rendered if only the client clicks ok(true), else operation is canceled
+  }
+
   return (
     <div className="app">
       <Logo />
@@ -34,6 +39,7 @@ export default function App(){
         items={items} 
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
+        onDeleteList={handleDeleteList}
       />
       <Stats items={items}/>
     </div>
