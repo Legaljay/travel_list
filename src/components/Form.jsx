@@ -9,7 +9,7 @@ export const Form = ({onAddItems}) => {
     function handleSubmit(e){
         e.preventDefault();
 
-        if(!description) return;
+        if(!description) return; //
         const newItem = {
             description, 
             quantity, 
